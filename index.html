@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para mi Doc Favorita</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+            position: relative;
+            padding: 20px;
+        }
+
+        /* Fondo Romántico Animado: Lluvia de pétalos/rosas */
+        .petalo {
+            position: absolute;
+            top: -50px;
+            font-size: 24px;
+            user-select: none;
+            pointer-events: none;
+            animation: caer linear infinite;
+            opacity: 0.7;
+        }
+
+        @keyframes caer {
+            0% {
+                transform: translateY(0) translateX(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.7;
+            }
+            90% {
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(105vh) translateX(100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Tarjeta estilo Cristal Romántico */
+        .carta-romantica {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 182, 193, 0.6);
+            padding: 45px 30px;
+            border-radius: 30px;
+            box-shadow: 0 20px 40px rgba(214, 34, 97, 0.1);
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            animation: aparecer Suave 1.5s ease-out;
+        }
+
+        @keyframes aparecerSuave {
+            from { opacity: 0; transform: scale(0.95) translateY(10px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        /* Rosa Principal que late con amor */
+        .rosa-principal {
+            font-size: 65px;
+            margin-bottom: 25px;
+            display: inline-block;
+            animation: latidoRosa 2.5s ease-in-out infinite;
+        }
+
+        @keyframes latidoRosa {
+            0%, 100% { transform: scale(1) rotate(-5deg); }
+            50% { transform: scale(1.12) rotate(5deg); filter: drop-shadow(0 0 10px rgba(230, 57, 70, 0.3)); }
+        }
+
+        h1 {
+            font-family: 'Times New Roman', Times, serif;
+            color: #b02c53;
+            font-size: 1.8rem;
+            letter-spacing: 1px;
+            margin-bottom: 30px;
+            line-height: 1.4;
+            border-bottom: 1px inline solid #ffccd5;
+            padding-bottom: 10px;
+        }
+
+        /* Estilo del Poema */
+        .poema-contenido {
+            color: #4a4a4a;
+            font-size: 1.15rem;
+            line-height: 1.8;
+            font-style: italic;
+        }
+
+        .verso-bloque {
+            margin-bottom: 25px;
+        }
+
+        .verso-bloque:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Detalle elegante al final */
+        .firma {
+            display: block;
+            margin-top: 30px;
+            color: #d62261;
+            font-size: 1.4rem;
+            animation: tildar 1.5s infinite alternate;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="carta-romantica">
+        <div class="rosa-principal">🌹</div>
+        <h1>¡KARINA PARA TI QUE ERES ESPECIAL!</h1>
+        
+        <div class="poema-contenido">
+            <div class="verso-bloque">
+                Quiero que este poema dibuje <br>
+                una sonrisa en tu cara.<br>
+                Quiero que te recuerde que <br>  
+                has estado en mi pensamiento. 
+            </div>
+
+            <div class="verso-bloque">
+                Quiero que te diga <br>
+                que eres un ser maravilloso <br>
+                Quiero que sea una hermosa parte <br>  
+                este día para ti.
+            </div>
+
+            <div class="verso-bloque">
+                Y quiero que te ayude a recordar <br>
+                cada vez que lo veas que <br>
+                este poema fue hecho pensando en ti <br>
+                solo porque eres mi <strong>Doc Favorita</strong>.
+            </div>
+        </div>
+        
+        <span class="firma">✨❤️✨</span>
+    </div>
+
+    <script>
+        const simbolos = ['🌹', '🌸', '✨', '🌹'];
+        const totalElementos = 18;
+
+        for (let i = 0; i < totalElementos; i++) {
+            let petalo = document.createElement('div');
+            petalo.classList.add('petalo');
+            // Elige un símbolo al azar de la lista
+            petalo.innerText = simbolos[Math.floor(Math.random() * simbolos.length)];
+            
+            // Posiciones y tiempos aleatorios para que se vea natural
+            petalo.style.left = Math.random() * 100 + 'vw';
+            petalo.style.animationDuration = (Math.random() * 4 + 6) + 's'; // Entre 6 y 10 segundos
+            petalo.style.animationDelay = (Math.random() * 5) + 's';
+            petalo.style.fontSize = (Math.random() * 15 + 15) + 'px'; // Tamaños variados
+
+            document.body.appendChild(petalo);
+        }
+    </script>
+</body>
+</html>
